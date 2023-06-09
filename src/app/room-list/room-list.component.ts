@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RoomDetailsComponent } from '../room-details/room-details.component';
 import { Observable } from 'rxjs';
 import { RoomService } from '../room.service';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './room-list.component.html',
   styleUrls: ['./room-list.component.css']
 })
-export class RoomListComponent {
+export class RoomListComponent implements OnInit{
   rooms: Observable<Room[]>;
 
   constructor(private roomService: RoomService, private router: Router) {
