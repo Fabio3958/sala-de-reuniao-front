@@ -16,11 +16,31 @@ submitted = false;
 
 
 constructor(private route: ActivatedRoute, private router: Router, private roomService:RoomService){
-  
+
 }
   
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
+
+    this.room = new Room();
+    this.id = this.route.snapshot.params[ 'id' ];
+    this.roomService.getRoom(this.id)
+    .subscribe(data => {
+      console.log(data)
+      this.room = data;
+    },
+    error => console.log(error)
+    )
+  }
+
+  updateRoom(){
+    this.roomService.updateRoom(this.id, this.room)
+    .subscribe(data => console.log(data), error => console.log(error));
+    this.room = new Room();
+    this.goToList();
+  }
+
+  onSubmit(){
+    this.router.navigate(['/rooms']);
   }
 
 }
