@@ -7,6 +7,7 @@ import { CreateRoomComponent } from './create-room/create-room.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { RoomListComponent } from './room-list/room-list.component';
 import { UpdateRoomComponent } from './update-room/update-room.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,12 @@ import { UpdateRoomComponent } from './update-room/update-room.component';
     CreateRoomComponent,
     RoomDetailsComponent,
     RoomListComponent,
-    UpdateRoomComponent
+    UpdateRoomComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
